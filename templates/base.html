@@ -21,8 +21,57 @@
             {% endif %}
         </nav>
     </header>
+    
     <main>
         {% block content %}{% endblock %}
     </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>🌍 TravelLog</h3>
+                <p>El teu passaport digital. Registra cada vol, cada platja i cada muntanya de manera fàcil i segura.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Navegació</h3>
+                <a href="{{ url_for('index') }}">Inici</a>
+                <a href="{{ url_for('about') }}">El meu Portfoli</a>
+                {% if session['usuari_nom'] %}
+                    <a href="{{ url_for('privat') }}">Els meus Viatges</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}">Iniciar Sessió</a>
+                {% endif %}
+            </div>
+            <div class="footer-col">
+                <h3>Informació del Projecte</h3>
+                <p>Aplicació Web Desenvolupada amb Python (Flask) i base de dades SQLite.</p>
+                <p><strong>Autor:</strong> Roc Siñol<br><strong>Curs:</strong> 25/26</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 TravelLog Project. Tots els drets reservats.
+        </div>
+    </footer>
+</body>
+</html>
+
+    <div id="particles-js"></div> 
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+      particlesJS("particles-js", {
+        "particles": {
+          "number": { "value": 80 },
+          "color": { "value": "#3498db" },
+          "shape": { "type": "circle" },
+          "opacity": { "value": 0.5 },
+          "size": { "value": 3 },
+          "line_linked": { "enable": true, "distance": 150, "color": "#3498db", "opacity": 0.4, "width": 1 },
+          "move": { "enable": true, "speed": 2 }
+        },
+        "interactivity": {
+          "events": { "onhover": { "enable": true, "mode": "repulse" } }
+        }
+      });
+    </script>
 </body>
 </html>

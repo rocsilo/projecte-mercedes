@@ -1,48 +1,76 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="form-wrapper">
-    <div class="form-container">
-        <div class="form-header">
-            <h2>🌍 Registra una nova experiència</h2>
-            <p>Comparteix els detalls de la teva darrera aventura</p>
+<div style="max-width: 600px; margin: 50px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
+    <h2 style="color: #0f172a; margin-top: 0;">🌍 Registra una nova experiència</h2>
+    <p style="color: #64748b; margin-bottom: 30px;">Comparteix els detalls de la teva darrera aventura pel món.</p>
+
+    <form method="POST">
+        <div style="margin-bottom: 20px;">
+            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #334155;">Destí (Ciutat/Lloc):</label>
+            <input type="text" name="desti" required placeholder="Ex: Tòquio, París..." style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; font-family: 'Inter', sans-serif;">
         </div>
-        
-        <form method="POST">
-            <div class="input-group">
-                <label for="desti">Destí (Ciutat/Lloc):</label>
-                <input type="text" id="desti" name="desti" placeholder="Ex: París, Japó..." required>
-            </div>
-            
-            <div class="input-group">
-                <label for="pais">País:</label>
-                <input type="text" id="pais" name="pais" placeholder="Ex: França" required>
-            </div>
-            
-            <div class="input-row">
-                <div class="input-group">
-                    <label for="valoracio">Valoració (1 a 5):</label>
-                    <select id="valoracio" name="valoracio">
-                        <option value="5">⭐⭐⭐⭐⭐ (Excel·lent)</option>
-                        <option value="4">⭐⭐⭐⭐ (Molt bé)</option>
-                        <option value="3">⭐⭐⭐ (Bé)</option>
-                        <option value="2">⭐⭐ (Regular)</option>
-                        <option value="1">⭐ (Pobre)</option>
-                    </select>
-                </div>
-            </div>
-            
-            <div class="input-group">
-                <label for="comentari">El teu comentari:</label>
-                <textarea id="comentari" name="comentari" rows="4" placeholder="Explica'ns què és el que més t'ha agradat..."></textarea>
-            </div>
-            
-            <button type="submit" class="btn-submit">Guardar Experiència</button>
-        </form>
-        
-        <div class="form-footer">
-            <a href="{{ url_for('privat') }}">← Tornar als meus viatges</a>
+
+        <div style="margin-bottom: 20px;">
+            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #334155;">País:</label>
+            <input type="text" name="pais" required placeholder="Ex: Japó" style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; font-family: 'Inter', sans-serif;">
         </div>
-    </div>
+
+        <div style="margin-bottom: 25px;">
+            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #334155;">Valoració de l'experiència:</label>
+            <input type="hidden" name="valoracio" id="valoracio_input" value="5">
+            
+            <div class="star-rating" id="stars" style="font-size: 2.5rem; cursor: pointer; user-select: none;">
+                <span class="star" data-value="1" style="transition: color 0.2s;">★</span>
+                <span class="star" data-value="2" style="transition: color 0.2s;">★</span>
+                <span class="star" data-value="3" style="transition: color 0.2s;">★</span>
+                <span class="star" data-value="4" style="transition: color 0.2s;">★</span>
+                <span class="star" data-value="5" style="transition: color 0.2s;">★</span>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #334155;">El teu comentari:</label>
+            <textarea name="comentari" rows="4" placeholder="Què és el que més t'ha agradat?" style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; font-family: 'Inter', sans-serif; resize: vertical;"></textarea>
+        </div>
+
+        <button type="submit" class="btn" style="width: 100%; background-color: #2563eb; color: white; padding: 15px; border: none; border-radius: 8px; font-weight: 600; font-size: 1.1rem; cursor: pointer; transition: background 0.3s;">Guardar Viatge</button>
+    </form>
 </div>
+
+<script>
+    const stars = document.querySelectorAll('.star');
+    const valoracioInput = document.getElementById('valoracio_input');
+
+    function highlightStars(value) {
+        stars.forEach(s => {
+            if (s.getAttribute('data-value') <= value) {
+                s.style.color = '#f1c40f'; // Groc brillant
+            } else {
+                s.style.color = '#e2e8f0'; // Gris apagat
+            }
+        });
+    }
+
+    stars.forEach(star => {
+        // En passar el ratolí per sobre
+        star.addEventListener('mouseover', function() {
+            highlightStars(this.getAttribute('data-value'));
+        });
+
+        // En treure el ratolí
+        star.addEventListener('mouseout', function() {
+            highlightStars(valoracioInput.value);
+        });
+
+        // En fer clic
+        star.addEventListener('click', function() {
+            valoracioInput.value = this.getAttribute('data-value');
+            highlightStars(this.getAttribute('data-value'));
+        });
+    });
+
+    // Inicialitzem a 5 estrelles
+    highlightStars(5);
+</script>
 {% endblock %}

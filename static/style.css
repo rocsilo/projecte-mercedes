@@ -1,11 +1,11 @@
-/* Importem una font neta */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
+/* CONFIGURACIÓ GLOBAL */
 :root {
-    --primary: #1a2a3a;
-    --accent: #3498db;
-    --bg: #f8f9fa;
-    --text: #333;
+    --primary: #0f172a;    /* Blau fosc elegant */
+    --accent: #2563eb;     /* Blau elèctric d'acció */
+    --text: #334155;
+    --bg: #f8fafc;
 }
 
 body {
@@ -13,188 +13,121 @@ body {
     background-color: var(--bg);
     margin: 0;
     color: var(--text);
-    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* Header amb espaiat real */
+main {
+    flex: 1; /* Fa que el footer sempre es quedi a baix */
+}
+
+/* =========================================
+   CAPÇALERA I MENÚ (Això arregla la teva imatge)
+   ========================================= */
 header {
-    background: var(--primary);
+    background-color: var(--primary);
+    color: white;
     padding: 15px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-.logo { font-size: 1.5rem; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
 
 nav a {
-    color: #cbd5e0;
+    color: #cbd5e1;
     text-decoration: none;
-    margin-left: 20px;
-    font-size: 0.95rem;
-    transition: 0.3s;
+    font-weight: 500;
+    transition: color 0.3s;
 }
 
-nav a:hover { color: white; }
-
-/* Secció Hero (La imatge de fons) */
-.hero {
-    height: 450px;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+nav a:hover {
     color: white;
-    text-align: center;
-    border-radius: 0 0 30px 30px;
 }
 
-/* Targetes de contingut (Cards) */
-.container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
-
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-
-.card {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    transition: 0.3s;
+/* =========================================
+   NOU FOOTER (Molt més net i professional)
+   ========================================= */
+footer {
+    background-color: #020617; /* Gairebé negre */
+    color: #94a3b8;
+    padding: 60px 5% 20px;
+    margin-top: 60px;
+    border-top: 4px solid var(--accent);
 }
 
-.card:hover { transform: translateY(-5px); }
-
-.card-img { width: 100%; height: 200px; object-fit: cover; }
-
-.card-body { padding: 20px; }
-
-/* Formularis Professionals */
-.form-container {
-    background: white;
-    max-width: 450px;
-    margin: 50px auto;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-input, textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0 20px;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    background: #fdfdfd;
-}
-
-.btn {
-    background: var(--accent);
+.footer-col h3 {
     color: white;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 600;
-    width: 100%;
-    transition: 0.3s;
-}
-
-.btn:hover { background: #2980b9; transform: scale(1.02); }
-
-/* Contenidor centrat per al formulari */
-.form-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
-    min-height: 80vh;
-}
-
-.form-container {
-    background: white;
-    width: 100%;
-    max-width: 600px;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    border: 1px solid #eee;
-}
-
-.form-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.form-header h2 {
-    color: #2c3e50;
-    margin: 0;
-}
-
-.form-header p {
-    color: #7f8c8d;
-    font-size: 0.9rem;
-}
-
-/* Estil dels inputs */
-.input-group {
+    font-size: 1.2rem;
+    margin-top: 0;
     margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
 }
 
-.input-group label {
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: #34495e;
+.footer-col p {
+    line-height: 1.6;
+    font-size: 0.95rem;
 }
 
-.input-group input, 
-.input-group textarea, 
-.input-group select {
-    padding: 12px 15px;
-    border: 2px solid #f0f2f5;
-    border-radius: 10px;
-    font-family: inherit;
-    transition: border-color 0.3s;
-}
-
-.input-group input:focus, 
-.input-group textarea:focus {
-    border-color: #3498db;
-    outline: none;
-}
-
-/* Botó professional */
-.btn-submit {
-    background: #3498db;
-    color: white;
-    border: none;
-    padding: 15px;
-    width: 100%;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-}
-
-.btn-submit:hover {
-    background: #2980b9;
-    transform: translateY(-2px);
-}
-
-.form-footer {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.form-footer a {
-    color: #7f8c8d;
+.footer-col a {
+    display: block;
+    color: #94a3b8;
     text-decoration: none;
-    font-size: 0.9rem;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+}
+
+.footer-col a:hover {
+    color: var(--accent);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 40px;
+    border-top: 1px solid #1e293b;
+    font-size: 0.85rem;
+}
+
+/* =========================================
+   BOTONS I FORMULARIS
+   ========================================= */
+.btn {
+    background-color: var(--accent);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover { background-color: #1d4ed8; }
+
+input, textarea, select {
+    width: 100%; padding: 12px; margin-top: 8px;
+    border: 1px solid #cbd5e1; border-radius: 8px;
+    box-sizing: border-box; font-family: 'Inter', sans-serif;
 }

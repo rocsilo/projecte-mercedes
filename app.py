@@ -60,7 +60,7 @@ def privat():
     if 'usuari_id' not in session:
         return redirect(url_for('login'))
     conn = sqlite3.connect('viatges.db')
-    # Només mostrem els viatges de l'usuari connectat per fer-ho més "pro"
+    # Només mostrem els viatges de l'usuari connectat
     meus_viatges = conn.execute("SELECT * FROM viatges WHERE usuari_id = ?", (session['usuari_id'],)).fetchall()
     conn.close()
     return render_template('privat.html', viatges=meus_viatges)
@@ -84,14 +84,19 @@ def afegir():
 
 @app.route('/about')
 def about():
-    # Aquí llistes les teves altres pràctiques
-    apps = ["Calculadora de Propietats", "Gestor de Contactes", "App de Notes en Python"]
-    return render_template('about_me.html', projectes=apps)
+    # Complint el requisit del portfoli passant dades de GitHub des de Python 
+    github_url = "https://github.com/rocsilo/projecte-mercedes/tree/main/practicas%20anteriors"
+    return render_template('about_me.html', github=github_url)
 
 @app.route('/logout')
 def logout():
     session.clear()
     return redirect(url_for('index'))
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+# Aquest bloc SEMPRE ha de ser l'últim del fitxer
 if __name__ == '__main__':
     app.run(debug=True)
