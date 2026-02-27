@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="hero">
+    <h1 style="font-size: 3.5rem;">TravelLog</h1>
+    <p style="font-size: 1.2rem; margin-bottom: 20px;">Immortalitza cada racó del món que visites.</p>
+    {% if not session['usuari_nom'] %}
+        <a href="{{ url_for('registre') }}" class="btn" style="width: auto;">Comença el teu diari</a>
+    {% endif %}
+</div>
+
+<div class="container">
+    <div class="grid">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600" class="card-img">
+            <div class="card-body">
+                <h3>Viatges d'Estiu</h3>
+                <p>Registra les millors platges i moments de relax.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600" class="card-img">
+            <div class="card-body">
+                <h3>Aventures</h3>
+                <p>Guarda les teves rutes de muntanya i senderisme.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

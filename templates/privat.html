@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="max-width: 800px; margin: 0 auto; padding: 40px 20px;">
+    <h2>Hola, <strong>{{ session['usuari_nom'] }}</strong>! ✈️</h2>
+    <p style="color: #666;">Aquests són els teus records guardats:</p>
+
+    {% for v in viatges %}
+    <div class="card">
+        <div>
+            <h3 style="margin: 0; text-transform: capitalize;">{{ v[1] }} <span style="font-weight: 300; color: #888;">({{ v[2] }})</span></h3>
+            <p style="margin: 10px 0 0 0; color: #555;"><i>"{{ v[4] }}"</i></p>
+        </div>
+        <div style="text-align: right;">
+            <span style="background: #e1f0fa; color: #3498db; padding: 5px 12px; border-radius: 20px; font-size: 0.9em; font-weight: 600;">
+                ⭐ {{ v[3] }}/5
+            </span>
+        </div>
+    </div>
+    {% endfor %}
+
+    <a href="{{ url_for('afegir') }}" style="display: inline-block; margin-top: 20px; color: #3498db; text-decoration: none; font-weight: 600;">
+        + Afegir un nou record
+    </a>
+</div>
+{% endblock %}

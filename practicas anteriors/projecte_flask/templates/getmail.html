@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Obtenir Mail (Getmail)</h2>
+    <a href="/addmail">Anar a afegir un nou mail (Addmail)</a>
+    <hr>
+
+    <form method="post">
+        Nom: <input type="text" name="nom" value="{{ nom_anterior }}">
+        <button type="submit">Cercar</button>
+    </form>
+
+    <br>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    {% if mail %}
+        <form>
+            Mail trobat: <input type="text" value="{{ mail }}" readonly>
+        </form>
+    {% endif %}
+</body>
+</html>

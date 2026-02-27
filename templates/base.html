@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <title>TravelLog - El meu diari de viatges</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>🌍 TravelLog</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Inici</a>
+            <a href="{{ url_for('about') }}">Sobre mi</a>
+            {% if session['usuari_nom'] %}
+                <a href="{{ url_for('privat') }}">Els meus Viatges</a>
+                <a href="{{ url_for('afegir') }}">Afegir Destí</a>
+                <a href="{{ url_for('logout') }}" style="color:red">Sortir ({{ session['usuari_nom'] }})</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">Entrar</a>
+                <a href="{{ url_for('registre') }}">Registrar-se</a>
+            {% endif %}
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

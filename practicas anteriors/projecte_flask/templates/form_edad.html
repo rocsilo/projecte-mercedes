@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="card">
+        <h1>Quan tindré 100 anys?</h1>
+        <form method="POST">
+            <label>Nom:</label>
+            <input type="text" name="nom" required placeholder="El teu nom">
+            <br><br>
+            <label>Edat:</label>
+            <input type="number" name="edat" required placeholder="La teva edat">
+            <br><br>
+            <button type="submit">Calcular</button>
+        </form>
+    </div>
+</body>
+</html>

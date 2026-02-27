@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Càlcul 100 anys</title>
+</head>
+<body>
+    <div class="card">
+        <h1>Hola, {{ nom }}!</h1>
+        <p class="info">Actualment tens <strong>{{ edat }}</strong> anys.</p>
+        <div class="resultat">
+            {{ missatge }}
+        </div>
+        <a href="{{ url_for('kalcul_edat_form')}}">Calcular un altre</a>
+    </div>
+</body>
+</html>

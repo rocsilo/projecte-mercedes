@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="form-wrapper">
+    <div class="form-container" style="max-width: 800px;">
+        <div class="form-header">
+            <h2>👨‍💻 El meu Portfoli de WebApps</h2>
+            <p>Aquí trobaràs tots els projectes que hem desenvolupat durant el curs 25/26.</p>
+        </div>
+
+        <div class="project-list">
+            <div class="card" style="margin-bottom: 15px; padding: 15px; border-left: 5px solid #3498db;">
+                <h3>📁 Pràctiques Anteriors</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin: 10px 0;">🚀 <a href="/practicas anteriors/dia-1/">Pràctica Dia 1: Introducció a HTML</a></li>
+                    <li style="margin: 10px 0;">🎨 <a href="#">Pràctica Dia 2: Estils amb CSS</a></li>
+                    <li style="margin: 10px 0;">📊 <a href="#">Pràctica Dia 3: Formularis i Dades</a></li>
+                    <li style="margin: 10px 0;">🐍 <a href="#">Pràctica Dia 4: Lògica amb Python</a></li>
+                    <li style="margin: 10px 0;">🌐 <a href="#">Pràctica Dia 5: Primeres rutes Flask</a></li>
+                    <li style="margin: 10px 0;">📦 <a href="#">Projecte Flask Avançat</a></li>
+                </ul>
+            </div>
+
+            <div class="card" style="margin-bottom: 15px; padding: 15px; border-left: 5px solid #27ae60;">
+                <h3>⭐ Projecte Actual: TravelLog</h3>
+                <p>Aquesta és l'aplicació final que integra base de dades, gestió d'usuaris i contingut dinàmic.</p>
+            </div>
+        </div>
+
+        <div class="form-footer" style="margin-top: 30px;">
+            <a href="{{ url_for('index') }}">← Tornar a l'Inici</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Registra una nova experiència de viatge</h2> <form method="POST">
+    <label>Destí (Ciutat o Lloc):</label><br>
+    <input type="text" name="desti" required><br><br>
+    
+    <label>País:</label><br>
+    <input type="text" name="pais" required><br><br>
+    
+    <label>Valoració (1 al 5):</label><br>
+    <input type="number" name="valoracio" min="1" max="5" value="5"><br><br>
+    
+    <label>El teu comentari:</label><br>
+    <textarea name="comentari"></textarea><br><br>
+    
+    <button type="submit">Guardar Viatge</button>
+</form>
+{% endblock %}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Afegir Mail (Addmail)</h2>
+    <a href="/getmail">Anar a cercar un mail (Getmail)</a>
+    <hr>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li style="color: green;">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <form method="post">
+        Nom: <input type="text" name="nom"><br>
+        Mail: <input type="text" name="mail"><br><br>
+        <button type="submit">Afegir</button>
+    </form>
+</body>
+</html>

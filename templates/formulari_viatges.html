@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="form-wrapper">
+    <div class="form-container">
+        <div class="form-header">
+            <h2>🌍 Registra una nova experiència</h2>
+            <p>Comparteix els detalls de la teva darrera aventura</p>
+        </div>
+        
+        <form method="POST">
+            <div class="input-group">
+                <label for="desti">Destí (Ciutat/Lloc):</label>
+                <input type="text" id="desti" name="desti" placeholder="Ex: París, Japó..." required>
+            </div>
+            
+            <div class="input-group">
+                <label for="pais">País:</label>
+                <input type="text" id="pais" name="pais" placeholder="Ex: França" required>
+            </div>
+            
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="valoracio">Valoració (1 a 5):</label>
+                    <select id="valoracio" name="valoracio">
+                        <option value="5">⭐⭐⭐⭐⭐ (Excel·lent)</option>
+                        <option value="4">⭐⭐⭐⭐ (Molt bé)</option>
+                        <option value="3">⭐⭐⭐ (Bé)</option>
+                        <option value="2">⭐⭐ (Regular)</option>
+                        <option value="1">⭐ (Pobre)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="comentari">El teu comentari:</label>
+                <textarea id="comentari" name="comentari" rows="4" placeholder="Explica'ns què és el que més t'ha agradat..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn-submit">Guardar Experiència</button>
+        </form>
+        
+        <div class="form-footer">
+            <a href="{{ url_for('privat') }}">← Tornar als meus viatges</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
