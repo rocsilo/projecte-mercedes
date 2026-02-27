@@ -4,31 +4,45 @@
 <div class="form-wrapper">
     <div class="form-container" style="max-width: 800px;">
         <div class="form-header">
-            <h2>👨‍💻 El meu Portfoli de WebApps</h2>
-            <p>Aquí trobaràs tots els projectes que hem desenvolupat durant el curs 25/26.</p>
+            <h2>👨‍💻 Mi Portfolio en GitHub</h2>
+            <p>Aquí puedes consultar todos los ejercicios realizados durante el curso.</p>
         </div>
 
         <div class="project-list">
-            <div class="card" style="margin-bottom: 15px; padding: 15px; border-left: 5px solid #3498db;">
-                <h3>📁 Pràctiques Anteriors</h3>
-                <ul style="list-style: none; padding: 0;">
-                    <li style="margin: 10px 0;">🚀 <a href="/practicas anteriors/dia-1/">Pràctica Dia 1: Introducció a HTML</a></li>
-                    <li style="margin: 10px 0;">🎨 <a href="#">Pràctica Dia 2: Estils amb CSS</a></li>
-                    <li style="margin: 10px 0;">📊 <a href="#">Pràctica Dia 3: Formularis i Dades</a></li>
-                    <li style="margin: 10px 0;">🐍 <a href="#">Pràctica Dia 4: Lògica amb Python</a></li>
-                    <li style="margin: 10px 0;">🌐 <a href="#">Pràctica Dia 5: Primeres rutes Flask</a></li>
-                    <li style="margin: 10px 0;">📦 <a href="#">Projecte Flask Avançat</a></li>
-                </ul>
+            <div class="card" style="margin-bottom: 25px; padding: 20px; border-left: 5px solid #24292e; background: #f6f8fa;">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 40px;">
+                    <div>
+                        <h3 style="margin: 0;">Repositorio Oficial</h3>
+                        <a href="https://github.com/rocsilo/projecte-mercedes/tree/main/practicas%20anteriors" target="_blank" style="color: #0366d6; font-weight: 600; text-decoration: none;">
+                            Ver carpetas de ejercicios anteriores →
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <div class="card" style="margin-bottom: 15px; padding: 15px; border-left: 5px solid #27ae60;">
-                <h3>⭐ Projecte Actual: TravelLog</h3>
-                <p>Aquesta és l'aplicació final que integra base de dades, gestió d'usuaris i contingut dinàmic.</p>
+            <div class="grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div class="card" style="padding: 15px; border-left: 5px solid #3498db;">
+                    <h4>🚀 Día 1 al 3</h4>
+                    <p style="font-size: 0.85rem; color: #666;">Introducción a HTML, Maquetación CSS y creación de Formularios.</p>
+                    <a href="https://github.com/rocsilo/projecte-mercedes/tree/main/practicas%20anteriors" target="_blank" style="font-size: 0.8rem; color: #3498db;">Ver código</a>
+                </div>
+                
+                <div class="card" style="padding: 15px; border-left: 5px solid #27ae60;">
+                    <h4>🐍 Día 4 al 5</h4>
+                    <p style="font-size: 0.85rem; color: #666;">Lógica de programación con Python y primeras rutas con Flask.</p>
+                    <a href="https://github.com/rocsilo/projecte-mercedes/tree/main/practicas%20anteriors" target="_blank" style="font-size: 0.8rem; color: #27ae60;">Ver código</a>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 20px; padding: 20px; border-left: 5px solid #e67e22;">
+                <h3>⭐ Proyecto Final: TravelLog</h3>
+                <p>Aplicación completa con base de datos SQLite, gestión de sesiones y herencia de templates.</p>
             </div>
         </div>
 
         <div class="form-footer" style="margin-top: 30px;">
-            <a href="{{ url_for('index') }}">← Tornar a l'Inici</a>
+            <a href="{{ url_for('index') }}" style="text-decoration: none; color: #7f8c8d;">← Volver al Inicio</a>
         </div>
     </div>
 </div>
